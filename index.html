@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Our Community - SERVIO Technologies</title>
+    <title>Join the SERVIO Community - SERVIO Technologies</title>
     <style>
         * {
             margin: 0;
@@ -16,46 +16,77 @@
             line-height: 1.6;
             color: #1a1a1a;
             background-color: #ffffff;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 16px;
         }
 
         /* Header */
         .header {
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
-            padding: 1rem 0;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 50;
         }
 
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 16px 0;
         }
 
-        .logo {
-            font-size: 1.5rem;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #2563eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-square {
+            width: 16px;
+            height: 16px;
+            background: #f97316;
+            border-radius: 2px;
+            transform: rotate(45deg);
+        }
+
+        .logo-text {
             font-weight: 700;
-            color: #2563eb;
+            color: #111827;
+            font-size: 18px;
+        }
+
+        .logo-subtext {
+            font-size: 12px;
+            color: #6b7280;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 24px;
         }
 
         .nav-links a {
             color: #6b7280;
             text-decoration: none;
             font-weight: 500;
+            font-size: 14px;
             transition: color 0.2s;
         }
 
@@ -63,321 +94,552 @@
             color: #2563eb;
         }
 
-        /* Section 1: Landing with QR */
-        .landing-section {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        .nav-links a.active {
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: #2563eb;
             color: white;
-            padding: 6rem 0;
-            text-align: center;
+            padding: 96px 0;
             position: relative;
             overflow: hidden;
         }
 
-        .landing-section::before {
+        .hero-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
+            inset: 0;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            opacity: 0.95;
         }
 
-        .landing-content {
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="office" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="1200" height="600" fill="url(%23office)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+
+        .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 10;
+            text-align: center;
         }
 
-        .landing-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.1;
         }
 
-        .landing-content p {
-            font-size: 1.25rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .hero-subtitle {
+            font-size: 24px;
+            color: #bfdbfe;
+            max-width: 768px;
+            margin: 0 auto;
+            line-height: 1.2;
         }
 
-        .qr-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 24px;
-            display: inline-block;
-            margin: 2rem 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        /* Introduction Section */
+        .intro-section {
+            padding: 64px 0;
+            background: white;
         }
 
-        .qr-code {
-            width: 180px;
-            height: 180px;
-            background: #f8fafc;
-            border: 2px dashed #cbd5e1;
+        .intro-content {
+            max-width: 896px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 24px;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .highlight-text {
+            font-weight: 600;
+            color: #2563eb;
+        }
+
+        /* Opportunities Section */
+        .opportunities-section {
+            padding: 64px 0;
+            background: #f9fafb;
+        }
+
+        .opportunities-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            color: #2563eb;
+            margin-bottom: 48px;
+        }
+
+        .opportunities-content {
+            max-width: 512px;
+            margin: 0 auto;
+        }
+
+        .card {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            transition: all 0.3s;
+            height: 100%;
+        }
+
+        .card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            background: #dbeafe;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            border-radius: 16px;
-            font-size: 0.875rem;
-            color: #64748b;
-            font-weight: 500;
+            margin-bottom: 24px;
         }
 
-        .cta-button {
-            background: #ff8c42;
+        .card-icon svg {
+            width: 32px;
+            height: 32px;
+            color: #2563eb;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .card-text {
+            color: #374151;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            color: #f97316;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-text {
+            color: #374151;
+        }
+
+        .download-btn {
+            background: #f97316;
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 12px 16px;
             border: none;
-            border-radius: 12px;
-            font-size: 1.125rem;
-            font-weight: 600;
+            border-radius: 8px;
+            font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 14px rgba(255, 140, 66, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: auto;
         }
 
-        .cta-button:hover {
-            background: #ff7c32;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
+        .download-btn:hover {
+            background: #ea580c;
         }
 
-        /* Section 2: Sign Up Form */
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Sign Up Form Section */
         .form-section {
-            background: #f8fafc;
-            padding: 6rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            color: #1e293b;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.125rem;
-            color: #64748b;
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 64px 0;
+            background: white;
         }
 
         .form-container {
-            max-width: 600px;
+            max-width: 512px;
             margin: 0 auto;
-            background: white;
-            padding: 3rem;
-            border-radius: 24px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            border: 1px solid #e2e8f0;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .form-icon {
+            width: 80px;
+            height: 80px;
+            background: #dbeafe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .form-icon svg {
+            width: 40px;
+            height: 40px;
+            color: #2563eb;
+        }
+
+        .form-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 16px;
+        }
+
+        .form-subtitle {
+            font-size: 18px;
+            color: #374151;
+        }
+
+        .form-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-card.success {
+            border-color: #10b981;
+        }
+
+        .form-card-content {
+            padding: 32px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #374151;
-            font-size: 0.875rem;
+        .form-label {
+            color: #111827;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1rem;
+        .required {
+            color: #f97316;
+        }
+
+        .form-input {
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
             transition: all 0.2s;
-            background: #f8fafc;
         }
 
-        .form-group input:focus,
-        .form-group select:focus {
+        .form-input:focus {
             outline: none;
             border-color: #2563eb;
-            background: white;
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
+        .consent-group {
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
         }
 
-        .checkbox-group input[type="checkbox"] {
+        .consent-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .consent-checkbox input[type="checkbox"] {
             width: 18px;
             height: 18px;
             margin: 0;
             accent-color: #2563eb;
+            margin-top: 2px;
         }
 
-        .checkbox-group label {
-            margin: 0;
-            font-weight: 500;
+        .consent-label {
+            font-size: 14px;
+            color: #374151;
+            font-weight: 400;
             cursor: pointer;
-        }
-
-        .required {
-            color: #ef4444;
-        }
-
-        .submit-btn {
-            background: #2563eb;
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.125rem;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-        }
-
-        .submit-btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-        }
-
-        .consent-text {
-            font-size: 0.75rem;
-            color: #64748b;
-            margin-top: 1.5rem;
-            text-align: center;
             line-height: 1.5;
         }
 
-        /* Section 3: Download Materials */
-        .download-section {
-            background: white;
-            padding: 6rem 0;
-        }
-
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .download-card {
-            background: #f8fafc;
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-            text-align: center;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #2563eb, #ff8c42);
-        }
-
-        .download-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: #2563eb;
-        }
-
-        .download-card h3 {
-            color: #1e293b;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .download-card p {
-            color: #64748b;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .download-btn {
-            background: #ff8c42;
+        .submit-btn {
+            background: #f97316;
             color: white;
-            padding: 0.875rem 2rem;
+            padding: 24px;
             border: none;
-            border-radius: 12px;
-            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
             font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s;
-            display: inline-block;
-            box-shadow: 0 4px 14px rgba(255, 140, 66, 0.3);
         }
 
-        .download-btn:hover {
-            background: #ff7c32;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
+        .submit-btn:hover {
+            background: #ea580c;
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 48px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            color: #10b981;
+        }
+
+        .success-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .success-text {
+            font-size: 18px;
+            color: #374151;
+            margin-bottom: 32px;
+        }
+
+        .reset-btn {
+            background: transparent;
+            color: #2563eb;
+            border: 1px solid #2563eb;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .reset-btn:hover {
+            background: #f0f9ff;
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            padding: 64px 0;
+            background: #2563eb;
+            color: white;
+        }
+
+        .qr-content {
+            max-width: 896px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .qr-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+        }
+
+        .qr-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .qr-subtitle {
+            font-size: 20px;
+            color: #bfdbfe;
+            margin-bottom: 32px;
+            line-height: 1.2;
+        }
+
+        .qr-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .qr-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .qr-placeholder {
+            width: 128px;
+            height: 128px;
+            background: white;
+            border-radius: 8px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-placeholder svg {
+            width: 80px;
+            height: 80px;
+            color: #2563eb;
+        }
+
+        .qr-card-title {
+            font-weight: 600;
         }
 
         /* Footer */
         .footer {
-            background: #1e293b;
+            background: #111827;
             color: white;
-            padding: 3rem 0;
+            padding: 48px 0;
+        }
+
+        .footer-content {
             text-align: center;
         }
 
-        .footer p {
-            opacity: 0.8;
-            font-size: 0.875rem;
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #2563eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-square {
+            width: 16px;
+            height: 16px;
+            background: #f97316;
+            border-radius: 2px;
+            transform: rotate(45deg);
+        }
+
+        .footer-logo-text {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .footer-logo-subtext {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .footer-copyright {
+            color: #9ca3af;
+            margin-bottom: 16px;
+        }
+
+        .footer-tagline {
+            font-size: 14px;
+            color: #6b7280;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .landing-content h1 {
-                font-size: 2.5rem;
-            }
-            
             .nav-links {
                 display: none;
             }
             
-            .form-container {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-            
-            .download-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .hero-title {
+                font-size: 36px;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .intro-title {
+                font-size: 28px;
+            }
+
+            .opportunities-title {
+                font-size: 28px;
+            }
+
+            .form-title {
+                font-size: 28px;
+            }
+
+            .qr-title {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 0 16px;
             }
         }
     </style>
@@ -387,105 +649,237 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <div class="logo">SERVIO Technologies</div>
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <div class="logo-square"></div>
+                    </div>
+                    <div>
+                        <div class="logo-text">SERVIO</div>
+                        <div class="logo-subtext">Technologies</div>
+                    </div>
+                </div>
                 <ul class="nav-links">
-                    <li><a href="#home">HOME</a></li>
-                    <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#solutions">SOLUTIONS</a></li>
-                    <li><a href="#community">COMMUNITY</a></li>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#" class="active">COMMUNITY</a></li>
+                    <li><a href="#">CULTURE</a></li>
+                    <li><a href="#">SOLUTIONS</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Section 1: Landing with QR Code -->
-    <section class="landing-section" id="home">
+    <!-- Hero Section -->
+    <section class="hero-section">
         <div class="container">
-            <div class="landing-content">
-                <h1>Join Our Community</h1>
-                <p>Be part of SERVIO Technologies' growing community of professionals, students, and innovators</p>
-                
-                <div class="qr-container">
-                    <div class="qr-code">
-                        QR CODE<br>
-                        Scan to join
-                    </div>
-                    <p style="color: #333; margin: 0;">Quick Sign Up</p>
-                </div>
-                
-                <a href="#signup" class="cta-button">Sign Me Up</a>
+            <div class="hero-content">
+                <h1 class="hero-title">Join the SERVIO Community</h1>
+                <p class="hero-subtitle">Be part of something bigger. Shape your future with us.</p>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: Sign Up Form -->
-    <section class="form-section" id="signup">
+    <!-- Introduction Section -->
+    <section class="intro-section">
         <div class="container">
-            <h2 class="section-title">Get Started Today</h2>
-            <p class="section-subtitle">Join our community and be part of the future of technology</p>
-            <div class="form-container">
-                <form id="signupForm">
-                    <div class="form-group">
-                        <label for="fullName">Full Name <span class="required">*</span></label>
-                        <input type="text" id="fullName" name="fullName" required>
-                    </div>
+            <div class="intro-content">
+                <h2 class="intro-title">Career Fair & Community Event</h2>
+                <p class="intro-text">
+                    Discover opportunities to grow with SERVIO Technologies. Start your career as a
+                    <span class="highlight-text">Trainee</span> and gain hands-on experience with real-world
+                    projects, mentoring from industry experts, and cutting-edge skills development.
+                </p>
+            </div>
+        </div>
+    </section>
 
-                    <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mobile">Mobile <span class="required">*</span></label>
-                        <input type="tel" id="mobile" name="mobile" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>I'm interested in: <span class="required">*</span></label>
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="servioCareers" name="interests" value="servio-careers">
-                            <label for="servioCareers">SERVIO Careers</label>
+    <!-- Opportunities Section -->
+    <section class="opportunities-section">
+        <div class="container">
+            <h2 class="opportunities-title">What We Offer</h2>
+            <div class="opportunities-content">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="m16 21 4-4-4-4"></path>
+                                <path d="m12 17 4 4-4 4"></path>
+                            </svg>
                         </div>
+                        <h3 class="card-title">SERVIO Careers</h3>
+                        <p class="card-text">
+                            Launch your career with hands-on experience, mentoring from industry experts, and real-world projects.
+                            Learn cutting-edge skills in software development, business solutions, and more.
+                        </p>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                                </svg>
+                                <span class="feature-text">Hands-on training & mentorship</span>
+                            </li>
+                            <li class="feature-item">
+                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                                </svg>
+                                <span class="feature-text">Real-world project experience</span>
+                            </li>
+                            <li class="feature-item">
+                                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                                </svg>
+                                <span class="feature-text">Career growth opportunities</span>
+                            </li>
+                        </ul>
+                        <button class="download-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7,10 12,15 17,10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download Trainee One-Pager
+                        </button>
                     </div>
-
-                    <div class="form-group">
-                        <label for="schoolCompany">School/Company</label>
-                        <input type="text" id="schoolCompany" name="schoolCompany">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cityProvince">City/Province</label>
-                        <input type="text" id="cityProvince" name="cityProvince">
-                    </div>
-
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="okToContact" name="okToContact" required>
-                        <label for="okToContact">OK to contact me <span class="required">*</span></label>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Sign Me Up</button>
-                    
-                    <div class="consent-text">
-                        By submitting this form, you consent to us contacting you for 180 days. 
-                        You can opt-out anytime via email.
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Download Materials -->
-    <section class="download-section">
+    <!-- Sign Up Form Section -->
+    <section class="form-section" id="signup-form">
         <div class="container">
-            <h2 class="section-title">Download Resources</h2>
-            <p class="section-subtitle">Get detailed information about our programs and opportunities</p>
-            <div class="download-grid">
-                <div class="download-card">
-                    <h3>Trainee Program</h3>
-                    <p>Learn about available roles, skills you'll develop, and our mentoring program. Perfect for students and fresh graduates.</p>
-                    <a href="#" class="download-btn">Download PDF</a>
+            <div class="form-container">
+                <div class="form-header">
+                    <div class="form-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="m22 21-3-3m0 0a5 5 0 1 0-7-7 5 5 0 0 0 7 7Z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="form-title">Sign Me Up</h2>
+                    <p class="form-subtitle">
+                        Take the first step towards your future. Fill out the form below and we'll keep you updated.
+                    </p>
+                    </div>
+
+                <div class="form-card" id="form-card">
+                    <div class="form-card-content">
+                        <form id="signupForm" class="form">
+                    <div class="form-group">
+                                <label for="fullName" class="form-label">
+                                    Full Name <span class="required">*</span>
+                                </label>
+                                <input type="text" id="fullName" name="fullName" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                                <label for="email" class="form-label">
+                                    Email <span class="required">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                                <label for="mobile" class="form-label">
+                                    Mobile <span class="required">*</span>
+                                </label>
+                                <input type="tel" id="mobile" name="mobile" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                                <label for="school" class="form-label">
+                                    School/Company
+                                </label>
+                                <input type="text" id="school" name="school" class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                                <label for="city" class="form-label">
+                                    City/Province
+                                </label>
+                                <input type="text" id="city" name="city" class="form-input">
+                    </div>
+
+                            <div class="consent-group">
+                                <div class="consent-checkbox">
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    <label for="consent" class="consent-label">
+                                        <span class="required">*</span> I consent to SERVIO Technologies contacting me
+                                        about opportunities and events. My information will be retained for 180 days. I can opt-out
+                                        anytime via email.
+                                    </label>
+                                </div>
+                    </div>
+
+                            <button type="submit" class="submit-btn">
+                                Sign me up
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code Section -->
+    <section class="qr-section">
+        <div class="container">
+            <div class="qr-content">
+                <svg class="qr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="5" height="5"></rect>
+                    <rect x="3" y="16" width="5" height="5"></rect>
+                    <rect x="16" y="3" width="5" height="5"></rect>
+                    <path d="m21 16-3 3-3-3"></path>
+                    <path d="m12 21 3-3-3-3"></path>
+                </svg>
+                <h2 class="qr-title">Visit Us at the Career Fair</h2>
+                <p class="qr-subtitle">
+                    Scan our QR codes at kiosks, tarpaulins, and roll-ups to sign up instantly. Download brochures and learn
+                    more about opportunities.
+                </p>
+                <div class="qr-grid">
+                    <div class="qr-card">
+                        <div class="qr-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="5" height="5"></rect>
+                                <rect x="3" y="16" width="5" height="5"></rect>
+                                <rect x="16" y="3" width="5" height="5"></rect>
+                                <path d="m21 16-3 3-3-3"></path>
+                                <path d="m12 21 3-3-3-3"></path>
+                            </svg>
+                        </div>
+                        <p class="qr-card-title">Kiosk QR</p>
+                    </div>
+                    <div class="qr-card">
+                        <div class="qr-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="5" height="5"></rect>
+                                <rect x="3" y="16" width="5" height="5"></rect>
+                                <rect x="16" y="3" width="5" height="5"></rect>
+                                <path d="m21 16-3 3-3-3"></path>
+                                <path d="m12 21 3-3-3-3"></path>
+                            </svg>
+                        </div>
+                        <p class="qr-card-title">Tarpaulin QR</p>
+                    </div>
+                    <div class="qr-card">
+                        <div class="qr-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="5" height="5"></rect>
+                                <rect x="3" y="16" width="5" height="5"></rect>
+                                <rect x="16" y="3" width="5" height="5"></rect>
+                                <path d="m21 16-3 3-3-3"></path>
+                                <path d="m12 21 3-3-3-3"></path>
+                            </svg>
+                        </div>
+                        <p class="qr-card-title">Brochure QR</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -493,7 +887,19 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 by SERVIO Technologies | The Genesis Bldg., Pueblo de Panay, Lawa-an, Roxas City, Capiz</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <div class="footer-logo-square"></div>
+                    </div>
+                    <div>
+                        <div class="footer-logo-text">SERVIO</div>
+                        <div class="footer-logo-subtext">Technologies</div>
+                    </div>
+                </div>
+                <p class="footer-copyright">©2025 by SERVIO Technologies</p>
+                <p class="footer-tagline">Software Pang Negosyo, Abot-Kaya ng Pilipino!</p>
+            </div>
         </div>
     </footer>
 
@@ -506,19 +912,99 @@
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
             
-            // Check if at least one interest is selected
-            const interests = document.querySelectorAll('input[name="interests"]:checked');
-            if (interests.length === 0) {
-                alert('Please select at least one interest.');
+            // Check if consent is checked
+            if (!data.consent) {
+                alert('Please provide consent to contact you.');
                 return;
             }
             
-            // Simulate form submission
-            alert('Thanks! You\'re on our list.');
+            // Show success message
+            const formCard = document.getElementById('form-card');
+            formCard.innerHTML = `
+                <div class="success-message" id="success-message">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="success-title">Thanks! You're on our list.</h3>
+                    <p class="success-text">
+                        We'll be in touch soon with more information about SERVIO opportunities.
+                    </p>
+                    <button onclick="resetForm()" class="reset-btn">
+                        Submit Another Response
+                    </button>
+                </div>
+            `;
             
-            // Reset form
-            this.reset();
+            // Scroll to success message
+            setTimeout(() => {
+                document.getElementById('success-message')?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
         });
+
+        function resetForm() {
+            const formCard = document.getElementById('form-card');
+            formCard.innerHTML = `
+                <div class="form-card-content">
+                    <form id="signupForm" class="form">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">
+                                Full Name <span class="required">*</span>
+                            </label>
+                            <input type="text" id="fullName" name="fullName" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                Email <span class="required">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobile" class="form-label">
+                                Mobile <span class="required">*</span>
+                            </label>
+                            <input type="tel" id="mobile" name="mobile" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="school" class="form-label">
+                                School/Company
+                            </label>
+                            <input type="text" id="school" name="school" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city" class="form-label">
+                                City/Province
+                            </label>
+                            <input type="text" id="city" name="city" class="form-input">
+                        </div>
+
+                        <div class="consent-group">
+                            <div class="consent-checkbox">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent" class="consent-label">
+                                    <span class="required">*</span> I consent to SERVIO Technologies contacting me
+                                    about opportunities and events. My information will be retained for 180 days. I can opt-out
+                                    anytime via email.
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            Sign me up
+                        </button>
+                    </form>
+                </div>
+            `;
+            
+            // Re-attach event listener
+            document.getElementById('signupForm').addEventListener('submit', arguments.callee);
+        }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -536,3 +1022,4 @@
     </script>
 </body>
 </html>
+
